@@ -12,6 +12,8 @@ Group:		Development/Python
 Url:		http://python-googl.googlecode.com/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
+Requires:	python-httplib2
+BuildRequires:	python-setuptools
 
 %description
 Python wrapper for goo.gl URL shortener.
