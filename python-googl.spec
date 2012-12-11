@@ -1,16 +1,11 @@
-%define name	python-googl
-%define version	0.2.2
-%define release %mkrel 1
-
 Summary:	Python wrapper for goo.gl URL shortener
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		python-googl
+Version:	0.2.2
+Release:	2
 Source0:	%{name}-%{version}.tar.gz
 License:	MIT
 Group:		Development/Python
 Url:		http://python-googl.googlecode.com/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
 Requires:	python-httplib2
 BuildRequires:	python-setuptools
@@ -22,12 +17,15 @@ Python wrapper for goo.gl URL shortener.
 %setup -q
 
 %install
-%__rm -rf %{buildroot}
 PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record=FILE_LIST
-
-%clean
-%__rm -rf %{buildroot}
+sed -i 's/.*egg-info$//' FILE_LIST
 
 %files -f FILE_LIST
-%defattr(-,root,root)
+
+
+
+%changelog
+* Mon Sep 26 2011 Lev Givon <lev@mandriva.org> 0.2.2-1mdv2011.0
++ Revision: 701208
+- imported package python-googl
 
