@@ -1,11 +1,11 @@
 Summary:	Python wrapper for goo.gl URL shortener
 Name:		python-googl
 Version:	0.2.2
-Release:	3
-Source0:	%{name}-%{version}.tar.gz
+Release:	4
+Source0:	https://files.pythonhosted.org/packages/16/b8/3cd10b97c268633dc73a9f8a1c5232776c34db3a6c1fc86085e79c29fc0f/%{name}-%{version}.tar.gz
 License:	MIT
 Group:		Development/Python
-Url:		http://python-googl.googlecode.com/
+Url:		https://pypi.org/project/python-googl/
 BuildArch:	noarch
 Requires:	python-httplib2
 BuildRequires:	python-setuptools
@@ -21,6 +21,7 @@ PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record
 sed -i 's/.*egg-info$//' FILE_LIST
 
 %files -f FILE_LIST
+%{python_sitelib}/googl/__pycache__/__init__.cpython-*.opt-1.pyc
 
 
 
